@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Material+Icons">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #navbar{
+           display: flex;
+            justify-content: space-between;
+           align-items: center;
+           height: 70px;
+           padding: 15px;
+        }
+        #navbar i{
+            padding: 0px 7px;
+            cursor: pointer;
+        }
+        
+        #header_left{
+            display: flex;
+            align-items: center;
+        }
+        #header_left img{
+          width: 100px;
+          margin-left: 15px;
+        }
+        #header_search form{
+            border: 1px solid #ddd;
+            height: 35px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+
+        }
+        #header_search input{
+            width: 500px;
+            padding: 10px;
+            margin: 0;
+            border: 0;
+            border-radius: none;
+        }
+        #header_search button{
+            padding:0px ;
+            height: 100%;
+            margin: 0;
+            border: none;
+            border-radius: 0;
+        }
+        .mainBody{
+            height: calc(100vh - 70px);
+            display: flex;
+            overflow: hidden;
+        }
+        .sidebar{
+            height: 100%;
+            width: 230px;
+            background-color: white;
+            overflow-y: scroll;
+        }
+         body::-webkit-scrollbar{
+             display: none;
+        }
+        .sidebarcategories{
+            width:100% ;
+            display: flex;
+            flex-direction:column;
+            margin-bottom:15px ;
+            margin-top: 15px;
+        }
+        .sidebarcategory{
+            display: flex;
+            align-items: center;
+            padding: 12px 25px;
+        }
+        .sidebarcategory span{
+            margin-left: 15px;
+        }
+        .sidebarcategory:hover{
+            background: #e5e5e5;
+            cursor: pointer;
+        }
+        .sidebar::-webkit-scrollbar{
+            display: none;
+        
+        }
+       
+        hr{
+            height: 1px ;
+            background-color: #e5e5e5;
+            border: none;
+        }
+
+        #searchTerm{
+            width: 500px;
+            height: 30px;
+            margin-bottom: 10px;
+            margin-left: 300px;
+            margin-top: 0px;
+        }
+        
+         #searchResults{
+             width: 528px;
+             height: 550px;
+             border: 1px solid white;
+             margin-left: 40px;
+
+         }
+         #mostPopular{
+             width: 80%;
+             display: grid;
+             grid-template-columns: repeat(4,1fr);
+             gap: 20px;
+             margin: auto;
+         }
+
+         #mostPopular >div{
+             display: flex;
+             flex-direction: column;
+             align-items: center;
+             justify-content: center;
+             border: 1px solid #cecece;
+             padding: 10px;
+
+         }
+
+         #searchResults{
+            display: flex; 
+            flex-wrap: wrap;
+            overflow: scroll;
+         }
+
+
+
+         #left{
+        width: 40%;
+        height: 100px;
+        object-fit: contain;
+    
+    }
+    #right{
+    
+        width: 55%;
+        height: 60px;
+        object-fit: contain;
+        margin-left: 5%;
+        
+    }
+    img{
+        height: 100%;
+        width: 100%;
+    }
+    #desc{
+        width: 90%;
+        overflow: hidden;
+        display: none;
+    }
+    #videotitle{
+        width: 90%;
+        overflow: hidden;
+    }
+    #logo{
+        width: 90px;
+        height: 30px;
+        margin-left: 40px;
+        margin-top: 10px;
+      
+    }
+    *{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+    }
+
+    .material-icons{
+        color: rgb(96, 96, 96);
+    }
+    #searchbox{
+        border: 1px solid #cecece;
+        display: flex;
+        margin-bottom: 2px;
+
+    }
+    #container{
+        overflow: scroll;
+        display: flex;
+        flex-direction: column;
+        
+    }
+    </style>
+    
+</head>
+<body>
+
+    <div id="navbar">
+        <div id="header_left">
+            <i class="material-icons">menu</i>
+            <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/753px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="">
+ </div>
+    
+ <div id="header_search">
+     <form action="">
+        <input type="text" id="searchTerm" oninput="debounce(main,3000)">
+        <button onclick="searchVideo()"><i class="material-icons">search</i></button>
+     </form>
+   
+ </div>
+       <div id="header_icons">
+           <i class="material-icons">videocam</i>
+           <i class="material-icons">apps</i>
+           <i class="material-icons">notifications</i>
+           <i class="material-icons">account_circle</i>
+
+
+
+       </div>
+    </div>
+
+    <div class="mainBody">
+        <div class="sidebar">
+            <div class="sidebarcategories">
+                <div class="sidebarcategory">
+                    <i class="material-icons">home</i>
+                    <span>Home</span>
+                </div>
+                <div class="sidebarcategory">
+                    <i class="material-icons">local_fire_department</i>
+                    <span>Trending</span>
+                </div>
+                <div class="sidebarcategory">
+                    <i class="material-icons">subscriptions</i>
+                    <span>Subscriptions</span>
+                </div>
+                <hr>
+                <div class="sidebarcategory">
+                    <i class="material-icons">library_add_check</i>
+                    <span>Library</span>
+                </div>
+                <div class="sidebarcategory">
+                    <i class="material-icons">history</i>
+                    <span>History</span>
+                </div>
+                <div class="sidebarcategory">
+                    <i class="material-icons">play_arrow</i>
+                    <span>Your Videos</span>
+                </div>
+                <div class="sidebarcategory">
+                    <i class="material-icons">watch_later</i>
+                    <span>Watch Later</span>
+                </div>
+                <div class="sidebarcategory">
+                    <i class="material-icons">thumb_up</i>
+                    <span>Liked Videos</span>
+                </div>
+                <hr>
+            </div>
+        </div>
+        <div id="container"></div>
+         <!-- <div id="searchResults"></div> -->
+         <div id="mostPopular"></div>
+    </div>
+   
+    
+</body>
+</html>
+<script src="you.js"></script>
+
+
+

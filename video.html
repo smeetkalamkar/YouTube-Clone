@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Material+Icons">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         #navbar{
+           display: flex;
+            justify-content: space-between;
+           align-items: center;
+           height: 70px;
+           padding: 15px;
+        }
+        #navbar i{
+            padding: 0px 7px;
+            cursor: pointer;
+        }
+        
+        #header_left{
+            display: flex;
+            align-items: center;
+        }
+        #header_left img{
+          width: 100px;
+          margin-left: 15px;
+        }
+        #header_search form{
+            border: 1px solid #ddd;
+            height: 35px;
+            margin: 0;
+            padding: 0;
+            display: flex;
+
+        }
+        #header_search input{
+            width: 500px;
+            padding: 10px;
+            margin: 0;
+            border: 0;
+            border-radius: none;
+        }
+        #header_search button{
+            padding:0px ;
+            height: 100%;
+            margin: 0;
+            border: none;
+            border-radius: 0;
+        }
+
+        #videocontainer{
+            width: 100%;
+            border: 1px solid #cecece;
+            margin: auto;
+            display: flex;
+            height: 600px;
+        }
+        #iframediv #videocard{
+            height: 100%;
+        }
+        #iframediv{
+            width: 60%;
+            border: 1px solid #cecece;
+        }
+        #suggestionsdiv{
+            width: 40%;
+            border: 1px solid #cecece;
+            overflow: scroll;
+
+        }
+        #suggestbox{
+            display: flex;
+        }
+        #left{
+            width: 30%;
+        }
+        #right{
+            width: 70%;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <!-- navbar starts -->
+    <div id="navbar">
+        <div id="header_left">
+            <i class="material-icons">menu</i>
+            <img id="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/753px-Logo_of_YouTube_%282015-2017%29.svg.png" alt="">
+ </div>
+    
+ <div id="header_search">
+     <form action="">
+        <input type="text" id="searchTerm" oninput="debounce(main,3000)">
+        <button onclick="searchVideo()"><i class="material-icons">search</i></button>
+     </form>
+   
+ </div>
+       <div id="header_icons">
+           <i class="material-icons">videocam</i>
+           <i class="material-icons">apps</i>
+           <i class="material-icons">notifications</i>
+           <i class="material-icons">account_circle</i>
+
+
+
+       </div>
+    </div>
+    <!-- nav bar ends -->
+ 
+   <!-- main body starts -->
+   <div id="videocontainer">
+       <div id="iframediv"></div>
+       <div id="suggestionsdiv"></div>
+   </div>
+   <!-- main body ends -->
+    
+</body>
+</html>
+<script src="video.js"></script>
