@@ -16,7 +16,7 @@ Deploy Link:-  https://polite-banoffee-7277b5.netlify.app/
  - **HTML**
  - **CSS** 
  - **JavaScript**
- - **LocalStorage**
+ 
  
 
 
@@ -42,7 +42,7 @@ Deploy Link:-  https://polite-banoffee-7277b5.netlify.app/
 
 
 
-In this project I fetched data using google  and showed it on DOM .
+In this project I fetched data using google API  and showed it on DOM .
 
 
 
